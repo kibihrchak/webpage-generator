@@ -1,0 +1,45 @@
+# Python Webpage Generator
+
+## Goal
+
+Goal is to make HTML generator based on provided template and data. It should support two-level menus, as well as custom content container organization. Template generation is based on [Mustache][mustache].
+
+
+## Inputs
+
+Input for generator are:
+
+-   master template (`main.mustache`)
+    
+    Contains master template for all pages. It has placeholders for all necessary parts, as well as static data for items that are shared among all the pages.
+
+-   menus (`*.menu` files)
+    
+    Menus used in the webpages. They are classified as:
+    
+    -   first-level menu: `main.menu`
+    -   second-level menus: all other `.menu` files
+    
+    Their content is:
+    
+    -   menu entry name
+    -   text that is show in menu
+    -   link to `.html` page
+
+-   page informations (`.page` files)
+    
+    These files contain specifications and some data for separate webpages. Final output (all `.html` files) will be generated in 1-to-1 relation with these files. 
+    
+    Data provided in page information files is:
+    
+    -   page title
+    -   main menu entry that will be selected when this page is on
+    -   does submenu exists
+    -   *[optional]* which submenu is used
+    -   *[optional]* submenu entry that will be selected when page is on
+    -   content placeholder source file
+    -   content source file(s)
+    -   output file name
+
+
+[mustache]: http://mustache.github.com/
