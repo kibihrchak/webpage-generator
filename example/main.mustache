@@ -1,0 +1,28 @@
+Title: {{title}}
+
+Main menu:
+
+{{#main_menu}}
+    Menu text: {{Text}}
+    Menu link: {{Link}}
+    {{#Selected}}This entry is selected{{/Selected}}
+    ------------
+{{/main_menu}}
+
+{{#subm_using}}
+Submenu:
+
+{{#submenu}}
+    Menu text: {{Text}}
+    Menu link: {{Link}}
+    {{#Selected}}This entry is selected{{/Selected}}
+    ------------
+{{/submenu}}
+{{/subm_using}}
+{{^subm_using}}
+There is no submenu.
+{{/subm_using}}
+
+Content placeholder:
+
+{{{content_placeholder}}}

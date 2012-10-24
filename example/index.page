@@ -1,0 +1,8 @@
+Field           Value
+
+title           HOME
+menu_name       home
+subm_using      False
+cont_type       rpanel.content
+cont_src        index_main.data index_rpanel.data
+output          index.html
