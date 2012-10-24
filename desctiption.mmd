@@ -41,5 +41,15 @@ Input for generator are:
     -   content source file(s)
     -   output file name
 
+-   content placeholder source files (`.content` files)
+    
+    They provide placeholders for actual content. Through them it is possible to make content area layout customizable.
+    
+    Placeholders are named as `pl#`, where `#` is increasing number, starting from 0. Content source files are inserted in those placeholders by order they are provided in `.page` file.
+
+-   content files (`.data` files)
+    
+    Data to be put in content placeholders.
+
 
 [mustache]: http://mustache.github.com/
