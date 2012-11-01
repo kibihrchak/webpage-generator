@@ -2,7 +2,6 @@ Field           Value
 
 title           NACHHILFE
 menu_name       schueler
-subm_using      True
 subm_src        schueler.menu
 subm_name       nachhilfe
 cont_type       rpanel.content

@@ -1,11 +1,15 @@
 Title: {{title}}
 
+{{{head_placeholder}}}
+
 Main menu:
 
 {{#main_menu}}
     Menu text: {{Text}}
     Menu link: {{Link}}
     {{#Selected}}This entry is selected{{/Selected}}
+    {{#First}}This is first entry{{/First}}
+    {{#Last}}This is last entry{{/Last}}
     ------------
 {{/main_menu}}
 
@@ -16,6 +20,8 @@ Submenu:
     Menu text: {{Text}}
     Menu link: {{Link}}
     {{#Selected}}This entry is selected{{/Selected}}
+    {{#First}}This is first entry{{/First}}
+    {{#Last}}This is last entry{{/Last}}
     ------------
 {{/submenu}}
 {{/subm_using}}
@@ -25,4 +31,4 @@ There is no submenu.
 
 Content placeholder:
 
-{{{content_placeholder}}}
+{{{body_placeholder}}}

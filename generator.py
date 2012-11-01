@@ -40,6 +40,9 @@ def parse_menufile(f):
 
         data = f.readline()
 
+    entries[0]["First"] = True
+    entries[-1]["Last"] = True
+
     return entries
 
 
@@ -65,9 +68,6 @@ def parse_pagefile(f):
         data = f.readline()
 
     # some data formatting
-    import ast
-    fields['subm_using'] = ast.literal_eval(fields['subm_using'])
-
     fields['cont_src'] = fields['cont_src'].split(' ')
 
     return fields
@@ -78,13 +78,8 @@ if __name__ == "__main__":
     import pystache
 
     # parse main menu
-    f = open("main.menu", 'r')
-
-    main_menu = parse_menufile(f)
-
-    f.close()
-
-    # print(str(main_menu).encode("ascii", "replace"))
+    with open("main.menu", 'r') as main_menu_file:
+        main_menu = parse_menufile(main_menu_file)
 
     # load main template
     with open("main.mustache", 'r') as f:
@@ -104,7 +99,7 @@ if __name__ == "__main__":
         current_main_menu =\
             select_menuitem(main_menu, parsed_data["menu_name"])
 
-        if parsed_data["subm_using"] == True: # if submeny exists
+        if ("subm_src" in parsed_data): # if submeny exists
             # parse submenu
             subm_file = open(parsed_data["subm_src"], 'r')
 
@@ -116,6 +111,10 @@ if __name__ == "__main__":
             current_submenu =\
                 select_menuitem(current_submenu, parsed_data["subm_name"])
 
+            parsed_data["subm_using"] = True
+        else:
+            parsed_data["subm_using"] = False
+
 
         # prepare dictionary for first-pass generation
         pystache_hash = parsed_data
@@ -125,9 +124,13 @@ if __name__ == "__main__":
         if pystache_hash["subm_using"] == True:
             pystache_hash["submenu"] = current_submenu
 
-        # load content layout file
+        # load body content layout file
         with open(parsed_data["cont_type"], 'r') as cont_file:
-            pystache_hash["content_placeholder"] = cont_file.read()
+            pystache_hash["body_placeholder"] = cont_file.read()
+
+        if "head_src" in parsed_data:
+            with open(parsed_data["head_src"], 'r') as head_file:
+                pystache_hash["head_placeholder"] = head_file.read()
 
         # do first-pass generation
         first_pass = pystache.render(main_template, pystache_hash)

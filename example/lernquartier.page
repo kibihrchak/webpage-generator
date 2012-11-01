@@ -2,7 +2,6 @@ Field           Value
 
 title           LERNQUARTIER
 menu_name       lernq
-subm_using      False
 cont_type       basic.content
 cont_src        lernq.data
 output          lernquartier.html

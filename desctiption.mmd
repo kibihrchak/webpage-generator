@@ -34,9 +34,9 @@ Input for generator are:
     
     -   page title
     -   main menu entry that will be selected when this page is on
-    -   does submenu exists
     -   *[optional]* which submenu is used
     -   *[optional]* submenu entry that will be selected when page is on
+    -   *[optional]* additional data to be inserted in `<head>` tag
     -   content placeholder source file
     -   content source file(s)
     -   output file name
@@ -50,6 +50,27 @@ Input for generator are:
 -   content files (`.data` files)
     
     Data to be put in content placeholders.
+
+-   header files (`.head` files)
+    
+    Data that will be inserted in `<head>` tag.
+
+
+## Used Mustache tags
+
+-   `title`: page title
+-   `head_placeholder`: placeholder for additional header data
+-   `main_menu`: start of main menu. Inside tags:
+    
+    -   `Text`
+    -   `Link`
+    -   `Selected`
+    -   `First`
+    -   `Last`
+
+-   `subm_using`: is submenu available
+-   `submenu`: start of submenu. Inside tags are same as for `main_menu`
+-   `body_placeholder`: placeholder for body content. Inside it are tags `pl#`, where `#` is a number starting from 0.
 
 
 [mustache]: http://mustache.github.com/
