@@ -2,6 +2,6 @@ Field           Value
 
 title           LERNQUARTIER
 menu_name       lernq
-cont_type       basic.content
+layout          basic
 cont_src        lernq.data
 output          lernquartier.html

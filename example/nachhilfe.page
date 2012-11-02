@@ -4,6 +4,6 @@ title           NACHHILFE
 menu_name       schueler
 subm_src        schueler.menu
 subm_name       nachhilfe
-cont_type       rpanel.content
+layout          rpanel
 cont_src        nachhilfe_main.data nachhilfe_rpanel.data
 output          nachhilfe.html

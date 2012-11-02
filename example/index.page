@@ -3,6 +3,6 @@ Field           Value
 title           HOME
 menu_name       home
 head_src        index.head
-cont_type       rpanel.content
+layout          rpanel
 cont_src        index_main.data index_rpanel.data
 output          index.html

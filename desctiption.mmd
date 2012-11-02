@@ -37,15 +37,21 @@ Input for generator are:
     -   *[optional]* which submenu is used
     -   *[optional]* submenu entry that will be selected when page is on
     -   *[optional]* additional data to be inserted in `<head>` tag
-    -   content placeholder source file
+    -   layout type
     -   content source file(s)
     -   output file name
 
--   content placeholder source files (`.content` files)
+-   layout file (`layout`)
     
-    They provide placeholders for actual content. Through them it is possible to make content area layout customizable.
+    This file specifies possible layouts. User will select appropriate layout by writing its name in `layout` field of `.page` file.
     
-    Placeholders are named as `pl#`, where `#` is increasing number, starting from 0. Content source files are inserted in those placeholders by order they are provided in `.page` file.
+    Layout data is:
+    
+    -   its internal name
+    -   content layout file (`.layout`) file
+    -   additional head data (`.head`) file
+    
+    Content layout file specifies content placeholders. Placeholders are named as `pl#`, where `#` is increasing number, starting from 0. Content source files are inserted in those placeholders by order they are provided in `.page` file.
 
 -   content files (`.data` files)
     
@@ -53,13 +59,14 @@ Input for generator are:
 
 -   header files (`.head` files)
     
-    Data that will be inserted in `<head>` tag.
+    User data that will be inserted in `<head>` tag.
 
 
 ## Used Mustache tags
 
 -   `title`: page title
 -   `head_placeholder`: placeholder for additional header data
+-   `head_layout`: placeholder for layout head data
 -   `main_menu`: start of main menu. Inside tags:
     
     -   `Text`
@@ -70,7 +77,7 @@ Input for generator are:
 
 -   `subm_using`: is submenu available
 -   `submenu`: start of submenu. Inside tags are same as for `main_menu`
--   `body_placeholder`: placeholder for body content. Inside it are tags `pl#`, where `#` is a number starting from 0.
+-   `body_layout`: placeholder for body content. Inside it are tags `pl#`, where `#` is a number starting from 0.
 
 
 [mustache]: http://mustache.github.com/
